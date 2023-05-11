@@ -12,8 +12,9 @@ class ServiceCategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {    
+        $serviceCategories = ServiceCategory::all();
+        return view('services.index',compact('serviceCategories'));
     }
 
     /**

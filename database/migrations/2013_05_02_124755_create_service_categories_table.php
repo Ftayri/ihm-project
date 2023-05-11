@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
         });
-        Schema::create('service_subcategories', function (Blueprint $table) {
+        Schema::create('service_sub_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignId('service_category_id')->constrained('service_categories')
@@ -30,6 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('service_categories');
-        Schema::dropIfExists('service_subcategories');
+        Schema::dropIfExists('service_sub_categories');
     }
 };
