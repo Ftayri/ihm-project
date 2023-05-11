@@ -1,4 +1,8 @@
 @extends('layout.template')
+@section('navbar-class')
+<nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative navbar-transparent"
+id="navbar-transparent">
+@endsection
 @section('content')
 <div class="d-flex align-items-start home-hero overflow-x-hidden position-relative" id="navbar-transparent-switcher"
 style="background: url(https://d1b747rczec55w.cloudfront.net/assets/home-bg-4dc4b66b752c785811e5c6b1d3df1f90b953d05e0ff367ff34f8823f34a0036a.svg) bottom center; background-size: cover">

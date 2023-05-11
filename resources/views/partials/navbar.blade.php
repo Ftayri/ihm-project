@@ -1,7 +1,6 @@
 <div class="fixed-top">
 <header class="d-flex flex-column">
-    <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative navbar-transparent"
-            id="navbar-transparent">
+    @yield('navbar-class')
             <div class="d-none d-md-block"><a class="navbar-brand brand-size" href="index.html"><img
                     alt="Le jobbing avec Yoojo" width="80" class="logo-brand-fr"
                     src="{{ asset('img/logo/yoojo-youpijob-logo.svg') }}" /></a>

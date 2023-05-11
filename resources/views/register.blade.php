@@ -1,4 +1,7 @@
 @extends('layout.template')
+@section('navbar-class')
+<nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
+@endsection
 @section('content')
 <div class="container-xs">
     <div class="my-6 py-md-6">
