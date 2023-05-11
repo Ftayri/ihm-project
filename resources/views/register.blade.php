@@ -23,9 +23,9 @@
                             prestataire idéal pour vos services du quotidien</span>
                 </a>
                 <span
-                      class="font-size-5 text-muted mx-6 align-self-center font-weight-medium my-md-0 my-4">OU</span><a
+                      class="font-size-5 text-muted mx-6 align-self-center font-weight-medium my-md-0 my-4">OU</span><a id="signUpBtnPres"
                       class="d-flex flex-column text-decoration-none p-4 border rounded animate-svg hover-shadow"
-                      data-modal-user-type="jobber" href="/devenez-prestataire"><svg
+                      data-modal-user-type="jobber" ><svg
                             class="svg-signup-jobber mb-4" height="78" viewbox="0 0 208 172" width="100"
                             xmlns="http://www.w3.org/2000/svg">
                             <g fill="none" fillrule="evenodd" id="signup-jobber">
@@ -59,7 +59,7 @@
                       id="dispatchLoginOR" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
           </p>
     </div>
-<!-- Inscription Modal -->
+<!-- Inscription Modal benef -->
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -167,10 +167,146 @@
       </div>
     </div>
     
-<!-- End Inscription Modal -->
+<!-- End Inscription Modal benef -->
+
+
+
+<!-- Inscription Modal pres -->
+
+<div class="modal fade" id="signUpModalPres" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="signUpModalLabel">Créer un compte</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Rejoignez nous maintenant !</p>
+        <!--signUp form -->
+        <form>
+              <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-user" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" id="nom" placeholder="Nom*" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-user" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" id="prenom" placeholder="Prénom*" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-phone" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <input type="tel" class="form-control" id="telephone" placeholder="Numéro de téléphone*" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="far fa-id-card" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" id="carteIdentite" placeholder="Numéro de carte d'identité*" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-portrait" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="photo" required>
+                        <label class="custom-file-label" for="photo">Choisir un fichier *</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <select class="form-control" id="gouvernorat" required>
+                        <option value="" selected disabled>Choisissez un gouvernorat*</option>
+                        <option value="Sfax">Sfax</option>
+                        <option value="Sousse">Sousse</option>
+                        <option value="Tunis">Tunis</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="far fa-envelope" style="color: #8a939e;"></i>
+                        </span>
+                      </div>
+                      <input type="email" class="form-control" id="email" placeholder="Adresse e-mail*" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa-solid fa-lock" style="color: #8a939e;"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe*" required>
+                  </div>
+                </div>
+          <div class="form-group form-row align-items-center">
+            <div class="col-auto">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Créer un compte</button>
+          </div>
+        </form>
+        <!--/signUp form -->
+      </div>    
+    </div>
+  </div>
+</div>
+
+<!--End of Inscription Modal pres -->
+
+
+
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
-
+<!-------SCript modal Pres --------------------->
 <script>
 $(document).ready(function(){
   $("#signUpBtn").click(function(){
@@ -178,4 +314,18 @@ $(document).ready(function(){
   });
 });
 </script>
+<!-------Script modal Pres --------------------->
+
+<!-------Script modal benef --------------------->
+<script>
+  $(document).ready(function(){
+    $("#signUpBtnPres").click(function(){
+      $("#signUpModalPres").modal('show');
+    });
+  });
+  </script>
+<!-------Script modal benef --------------------->
+
+
+
 @endsection
