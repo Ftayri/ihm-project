@@ -22,13 +22,6 @@
                       <h2 class="h4">J&#39;ai besoin d&#39;un service</h2><span class="text-muted">Trouvez le
                             prestataire idéal pour vos services du quotidien</span>
                 </a>
-                <script type="application/json"
-                      id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"fr","i18nDefaultLocale":"fr","rorVersion":"12.2.0","rorPro":false,"href":"https://yoojo.fr/inscription","location":"/inscription","scheme":"https","host":"yoojo.fr","port":null,"pathname":"/inscription","search":null,"httpAcceptLanguage":"en, *","serverSide":false}</script>
-                <div id="LoginOrRegister-react-component-539c6b7a-2b32-4e2e-b316-ce15d9265e36"></div>
-                <script type="application/json" class="js-react-on-rails-component"
-                      data-component-name="LoginOrRegister"
-                      data-dom-id="LoginOrRegister-react-component-539c6b7a-2b32-4e2e-b316-ce15d9265e36">{"type":"signup","modal":true,"selector":"#signUpBtn","redirectionPath":"/dashboard","isJobber":false}</script>
-
                 <span
                       class="font-size-5 text-muted mx-6 align-self-center font-weight-medium my-md-0 my-4">OU</span><a
                       class="d-flex flex-column text-decoration-none p-4 border rounded animate-svg hover-shadow"
@@ -63,13 +56,126 @@
                 </a>
           </div>
           <p class="text-center mb-0">Vous avez déjà un compte ?<a class="ml-2" href=""
-                      id="dispatchLoginOR">Connectez-vous</a>
-          <div id="LoginOrRegister-react-component-a7bb3fb4-12b7-45b7-b253-ec5acc1ceab0"></div>
-          <script type="application/json" class="js-react-on-rails-component"
-                data-component-name="LoginOrRegister"
-                data-dom-id="LoginOrRegister-react-component-a7bb3fb4-12b7-45b7-b253-ec5acc1ceab0">{"type":"login","modal":true,"selector":"#dispatchLoginOR","redirectionPath":"/dashboard","isJobber":false,"hasSwitch":true}</script>
-
+                      id="dispatchLoginOR" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
           </p>
     </div>
-</div>
+<!-- Inscription Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="signUpModalLabel">Créer un compte</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>N'hésitez pas à profiter de nos services!</p>
+            <!--signUp form -->
+            <form>
+                  <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas fa-user" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="nom" placeholder="Nom*" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas fa-user" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="prenom" placeholder="Prénom*" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas fa-phone" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <input type="tel" class="form-control" id="telephone" placeholder="Numéro de téléphone*" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="far fa-id-card" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="carteIdentite" placeholder="Numéro de carte d'identité*" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <select class="form-control" id="gouvernorat" required>
+                            <option value="" selected disabled>Choisissez un gouvernorat*</option>
+                            <option value="Sfax">Sfax</option>
+                            <option value="Sousse">Sousse</option>
+                            <option value="Tunis">Tunis</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="far fa-envelope" style="color: #8a939e;"></i>
+                            </span>
+                          </div>
+                          <input type="email" class="form-control" id="email" placeholder="Adresse e-mail*" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="fa-solid fa-lock" style="color: #8a939e;"></i>
+                          </span>
+                        </div>
+                        <input type="password" class="form-control" id="password" placeholder="Mot de passe*" required>
+                      </div>
+                    </div>
+              <div class="form-group form-row align-items-center">
+                <div class="col-auto">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Créer un compte</button>
+              </div>
+            </form>
+            <!--/signUp form -->
+          </div>    
+        </div>
+      </div>
+    </div>
+    
+<!-- End Inscription Modal -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#signUpBtn").click(function(){
+    $("#signUpModal").modal('show');
+  });
+});
+</script>
 @endsection

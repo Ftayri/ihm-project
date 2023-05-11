@@ -29,6 +29,7 @@
     </nav>
 </header>
 </div>
+<!-- Connexion Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -84,6 +85,8 @@
     </div>
   </div>
 </div>
+<!-- End Connexion Modal -->
+<!-- Service Modal -->
 <div id="ServiceModal" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -109,5 +112,6 @@
     </div>
   </div>
 </div>
+<!-- End Service Modal -->
 
 
