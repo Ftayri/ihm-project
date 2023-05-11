@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//make a route for / that calls HomeController and returns index method call the route home
 Route::get('/',[HomeController::class,'index'])->name('home');
-//route register that returns the view register
 Route::get('/inscription',function(){
     return view('register');
 })->name('register');
+Route::get('/services',function(){
+    return view('services.index');
+})->name('services.index');
