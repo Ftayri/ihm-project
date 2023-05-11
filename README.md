@@ -1,10 +1,10 @@
-# IHM Home Services Project
+# IHM MonDomiService Project
 
-Welcome to the IHM Home Services project! This project aims to provide users with on-demand home services.
+Welcome to the IHM MonDomiService project! This project aims to provide users with on-demand MonDomiService.
 
 ## Project Description
 
-The IHM Home Services project is built using Laravel and Blade templating engine. It allows users to browse various service categories, select specific services, and book them for their home. The project provides a user-friendly interface to view service details, make bookings, and manage user accounts.
+The IHM MonDomiService project is built using Laravel and Blade templating engine. It allows users to browse various service categories, select specific services, and book them for their home. The project provides a user-friendly interface to view service details, make bookings, and manage user accounts.
 
 ## Project Features
 
@@ -58,8 +58,5 @@ The project should now be accessible at `http://localhost:8000`.
 
 ## Contributing
 
-Contributions to the IHM Home Services project are welcome! If you find any issues or have suggestions for improvements, please submit a pull request or open an issue.
+Contributions to the IHM MonDomiService project are welcome! If you find any issues or have suggestions for improvements, please submit a pull request or open an issue.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
