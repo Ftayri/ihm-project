@@ -35,7 +35,7 @@ return new class extends Migration
             $table->id();
             $table->string('profile_picture')->nullable();
             $table->string('service_description')->nullable();
-            $table->foreignId('service_subcategory_id')->constrained('service_subcategories')
+            $table->foreignId('service_sub_category_id')->constrained('service_sub_categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//make a route for / that calls HomeController and returns index method call the route home
 Route::get('/',[HomeController::class,'index'])->name('home');
-//route register that returns the view register
 Route::get('/inscription',function(){
     return view('register');
 })->name('register');
+//services index route through ServiceCategoryController
+Route::get('/services',[ServiceCategoryController::class,'index'])->name('services.index');

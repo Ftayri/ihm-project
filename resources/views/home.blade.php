@@ -414,7 +414,7 @@ style="background: url(https://d1b747rczec55w.cloudfront.net/assets/home-bg-4dc4
 </div>
 </div>
 <div class="ypj-fluid-container mt-n2"><a class="font-size-3 font-weight-medium d-block mt-3 askService"
-  href="#">Voir tous les services<i class="icon-angle-right pl-1 font-size-1"></i></a></div>
+  href="{{ route('services.index') }}">Voir tous les services<i class="icon-angle-right pl-1 font-size-1"></i></a></div>
 <div class="ypj-fluid-container">
 <div class="mt-6">
   <h2>Le service à domicile en toute sérénité</h2>
