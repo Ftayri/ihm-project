@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//make a route for / that calls HomeController and returns index method call the route home
+Route::get('/',[HomeController::class,'index'])->name('home');
+//route register that returns the view register
+Route::get('/inscription',function(){
+    return view('register');
+})->name('register');

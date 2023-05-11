@@ -24,7 +24,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="loginMenuBtn" class="nav-link" data-toggle="modal" data-target="#loginModal"
                     href="#">Connexion</a></li>
                 <li class="nav-item d-flex align-items-center"><a class="nav-link"
-                    href="https://yoojo.fr/inscription">Inscription</a></li>
+                    href="{{ route('register') }}">Inscription</a></li>
                 </ul>
             </div>
     </nav>
