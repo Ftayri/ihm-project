@@ -42,12 +42,11 @@ class UserController extends Controller
         $beneficiary = new Beneficiary();
         $beneficiary->user_id = $user->id;
         $beneficiary->save();
-        Auth::login($user);
+        Auth::login($beneficiary);
         return redirect()->route('home');
     }
     public function storeServiceProvider(Request $request)
     {
-        //use Validator::make to validator request.all()
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -91,7 +90,7 @@ class UserController extends Controller
         $serviceProvider->user_id = $user->id;
         $serviceProvider->service_sub_category_id = $request->service_sub_category_id;
         $serviceProvider->save();
-        Auth::login($user);
+        Auth::login($serviceProvider);
         return redirect()->route('home');
         
     }
