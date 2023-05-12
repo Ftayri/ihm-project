@@ -18,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/inscription',[HomeController::class,'register'])->name('register');
 Route::get('/services',[ServiceCategoryController::class,'index'])->name('services.index');
+//   view ('JardinageSubServ)
+Route::get('/welcome', function () {
+    $serviceCategories =[];
+    return view('subServices.JardinageSubServ',compact('serviceCategories' ));
+});
+
+Route::get('/hi', function () {
+    $serviceCategories =[];
+    return view('subServices.Demenagement',compact('serviceCategories' ));
+});
+

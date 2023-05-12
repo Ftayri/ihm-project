@@ -117,7 +117,7 @@
               </button>
             </div>
           @empty
-            nothing font
+            nothing foound
           @endforelse
         </div>
       </div>
