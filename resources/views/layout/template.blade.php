@@ -34,7 +34,7 @@
   <meta content="#ffffff" name="msapplication-TileColor" />
   <meta content="#ffffff" name="theme-color" />
   <script src="https://kit.fontawesome.com/576e1fd294.js" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 
 </head>
 

@@ -103,15 +103,28 @@
           </div>
           <input type="text" class="form-control" placeholder="Rechercher un service...">
         </div>
-        <p>This is the content of the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <div class="button-container">
+          @forelse ( $serviceCategories as $serviceCategory)
+            <div class="Block">
+              <button type="button" class="elevated-button">
+                <div class="button-content">
+                  <div class="image-container">
+                    <img src="{{ asset('img/services/'.$serviceCategory->image) }}" alt="{{ $serviceCategory->name }}">
+                  </div>
+                  <span class="label">{{ $serviceCategory->name }}</span>
+                </div>
+                <i class="fas fa-angle-right"></i>
+              </button>
+            </div>
+          @empty
+            nothing font
+          @endforelse
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- End Service Modal -->
 
 

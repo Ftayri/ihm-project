@@ -16,8 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/inscription',function(){
-    return view('register');
-})->name('register');
-//services index route through ServiceCategoryController
+Route::get('/inscription',[HomeController::class,'register'])->name('register');
 Route::get('/services',[ServiceCategoryController::class,'index'])->name('services.index');

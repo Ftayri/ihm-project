@@ -119,137 +119,37 @@ style="background: url(https://d1b747rczec55w.cloudfront.net/assets/home-bg-4dc4
     </div>
   </div>
 </div>
+@php
+  $i = 0;
+@endphp
+@foreach ($serviceCategories as $serviceCategory )
+@if($i%3 == 0)
 <div class="row">
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Bricolage" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/bricolage.svg') }}" />
-          </div>
+@endif
+<div class="col-12 col-md-4">
+  <div class="d-flex flex-column mb-grid-gutter">
+    <div class="category-hover">
+      <div class="frosted-glass-shadow">
+        <div class="picture"><img alt="{{ $serviceCategory->name }}" class="radius-m img-contain" style="height: 180px"
+            loading="lazy"
+            src="{{ asset('img/services/'.$serviceCategory->image) }}" />
         </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/bricolage">Bricolage</a></div>
       </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Jardinage" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/jardinage.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/jardinage">Jardinage</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Déménagement" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/demenagement.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/demenagement">Déménagement</a></div>
-      </div>
+      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
+          href="https://yoojo.fr/bricolage">{{ $serviceCategory->name }}</a></div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Ménage" class="radius-m img-contain" style="height: 180px" loading="lazy"
-              src="{{ asset('img/services/menage.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/menage">Ménage</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Enfants" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/enfants.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/enfants">Enfants</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Animaux" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/animaux.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/animaux">Animaux</a></div>
-      </div>
-    </div>
-  </div>
+@php
+  $i++;
+@endphp
+@if($i%3 == 0)
 </div>
-<div class="row">
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Informatique" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/informatique.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/informatique">Informatique</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Aide à domicile" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/aide.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/aide-a-domicile">Aide à domicile</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="d-flex flex-column mb-grid-gutter">
-      <div class="category-hover">
-        <div class="frosted-glass-shadow">
-          <div class="picture"><img alt="Cours particuliers" class="radius-m img-contain" style="height: 180px"
-              loading="lazy"
-              src="{{ asset('img/services/cours.svg') }}" />
-          </div>
-        </div>
-        <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-            href="https://yoojo.fr/cours-particuliers">Cours particuliers</a></div>
-      </div>
-    </div>
-  </div>
+@endif
+@endforeach
+@if($i%3 != 0)
 </div>
+@endif
 </div>
 <div class="anchor"><a name="popular-services">&nbsp;</a></div>
 <div class="mt-6 ypj-fluid-container">
@@ -261,156 +161,20 @@ style="background: url(https://d1b747rczec55w.cloudfront.net/assets/home-bg-4dc4
 </div>
 <div class="ypj-fluid-container">
 <div class="row mb-1" data-component="carousel">
+  @foreach($serviceSubCategories as $serviceSubCategory)
   <div class="col position-relative">
     <div class="category-hover">
       <div class="frosted-glass-shadow">
         <div class="picture"><img alt="Taille de haie" class="radius-m img-contain"
             style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/jardinage/taille_de_haie.svg') }}" />
+            src="{{ asset('img/subservices/'.$serviceSubCategory->image) }}" />
         </div>
       </div>
       <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/jardinage/taille-de-haie">Taille de haie</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 42 € - 152 €</div>
+          href="https://yoojo.fr/jardinage/taille-de-haie">{{ $serviceSubCategory->name }}</a></div>
     </div>
   </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Déménagement tout compris" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/demenagement/tout_compris.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/demenagement/demenagement-tout-compris">Déménagement tout compris</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 74 € - 275 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Ménage à domicile" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/menage/menage_a_domicile.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/menage/menage-a-domicile">Ménage à domicile</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 24 € - 59 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Tondre la pelouse" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/jardinage/tondre_la_pelouse.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/jardinage/tondre-la-pelouse">Tondre la pelouse</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 29 € - 68 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Assemblage de meubles" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/bricolage/assemblage_de_meuble.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/bricolage/assemblage-de-meubles">Assemblage de meubles</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 30 € - 84 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Déplacer un meuble" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/demenagement/deplacer_un_meuble.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/demenagement/deplacer-un-meuble">Déplacer un meuble</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 29 € - 59 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Peinture intérieure" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/bricolage/peinture_interieure.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/bricolage/peinture-interieure">Peinture intérieure</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 100 € - 350 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Débroussaillage" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/jardinage/debroussaillage.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/jardinage/debroussaillage">Débroussaillage</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 38 € - 89 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Fixation d&#39;étagères" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/jardinage/fixation_d_etageres.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/bricolage/fixation-d-etageres">Fixation d&#39;étagères</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 21 € - 42 €</div>
-    </div>
-  </div>
-  <div class="col position-relative">
-    <div class="category-hover">
-      <div class="frosted-glass-shadow">
-        <div class="picture"><img alt="Garde de chien" class="radius-m img-contain"
-            style="height: 140px; object-position: right;" loading="lazy"
-            src="{{ asset('img/subservices/animaux/garde_de_chien.svg') }}" />
-        </div>
-      </div>
-      <div class="mt-2"><a class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-          href="https://yoojo.fr/animaux/garde-de-chien">Garde de chien</a></div>
-      <div class="badge badge-light badge-pill mt-1"
-        style="background: var(--color-background-gray); padding: 6px 8px; font-size: var(--font-size-body14);">
-        Prix moyen 21 € - 99 €</div>
-    </div>
-  </div>
+  @endforeach
 </div>
 </div>
 <div class="ypj-fluid-container mt-n2"><a class="font-size-3 font-weight-medium d-block mt-3 askService"
