@@ -3,20 +3,37 @@
 <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
 @endsection
 @section('content')
-
+<div class="ypj-fluid-container">
+  <ol class="breadcrumb mb-3 pl-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+      <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
+          itemtype="http://schema.org/ListItem">
+          <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span
+                  itemprop="name">Acceuil</span></a>
+          <meta content="2" itemprop="position" />
+      </li>
+      <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
+          itemtype="http://schema.org/ListItem">
+          <a class="link-gray" itemprop="item" href=""><span
+                  itemprop="name">{{ $serviceCategory->name }}</span></a>
+          <meta content="2" itemprop="position" />
+      </li>
+  </ol>
+</div>
 <div class="ypj-fluid-container">
     <ol class="breadcrumb mb-3 pl-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-      <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-          class="link-gray" itemprop="item" href="/"><span itemprop="name">Accueil</span></a>
-        <meta content="1" itemprop="position" />
+      <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
+          itemtype="http://schema.org/ListItem">
+          <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span
+                  itemprop="name">Acceuil</span></a>
+          <meta content="2" itemprop="position" />
       </li>
       <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-          class="link-gray" itemprop="item" href="/demenagement"><span itemprop="name">Déménagement</span></a>
+          class="link-gray" itemprop="item" href="{{ route('services.show',['serviceCategory'=>$serviceCategory->slug]) }}"><span itemprop="name">{{ $serviceCategory->name }}</span></a>
         <meta content="2" itemprop="position" />
       </li>
       <li class="breadcrumb-item active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-        <a class="link-gray" itemprop="item" href="/demenagement/demenagement-tout-compris"><span
-            itemprop="name">Déménagement tout compris</span></a>
+        <a class="link-gray" itemprop="item" href="{{ route('services.subcategory.show',['serviceCategory'=>$serviceCategory->slug,'serviceSubCategory'=>$serviceSubCategory->slug]) }}"><span
+            itemprop="name">{{ $serviceSubCategory->name }}</span></a>
         <meta content="3" itemprop="position" />
       </li>
     </ol>
@@ -24,14 +41,13 @@
   <div class="hero">
     <div class="hero-content">
       <div class="hero-content-left">
-        <h1 class="font-weight-medium">Service de déménagement tout compris</h1>
-        <p class="text-muted">Choisissez notre formule clés en main pour déménager en toute sérénité ! Camion,
-          chauffeur, manutention... votre déménageur s'occupe de tout !</p><a class="btn btn-primary btn-lg btn-break"
-          href="/poster-un-job?category=3018">Réservez votre déménagement</a>
+        <h1 class="font-weight-medium">Service de {{ Str::lower($serviceSubCategory->name) }}</h1>
+       <a class="btn btn-primary btn-lg btn-break"
+          href="/poster-un-job?category=3018">Réservez votre {{ Str::lower($serviceSubCategory->name) }}</a>
       </div>
-      <div class="hero-content-right"><img alt="Service de déménagement tout compris"
+      <div class="hero-content-right"><img alt="Service de {{$serviceSubCategory->name}}"
           class="img-contain radius-xl subcategory-header-image-responsive d-none d-lg-block"
-          src="https://d1b747rczec55w.cloudfront.net/assets/categories/3018-1d68f79e9fd076ba5e092ff419b89680924005a18a29b0ad7fceb3d691a5b82a.svg" />
+          src="{{ asset('img/subservices/'.$serviceSubCategory->image) }}" />
       </div>
     </div>
   </div>
@@ -97,22 +113,23 @@
   </div>
   <div class="ypj-fluid-container">
     <div class="my-6">
-      <h2>Découvrez les déménageurs les mieux notés près de chez vous</h2>
+      <h2>Découvrez les préstataires les mieux notés près de chez vous</h2>
       <div class="row">
+        @foreach($serviceProviders as $serviceProvider)
         <div class="col-md-3 col-lg-3 pt-2">
           <p>
           <div class="d-flex align-items-center" data-preview-jobber="779427">
             <div class="mr-3"><a class="position-relative d-block" href="/jobber/veyrard-sannois-882713?skill=removal">
                 <div class="img-user img-80"><img alt="Profil de Veyrard"
-                    src="https://d1b747rczec55w.cloudfront.net/uploads/moderated_file/avatar/attachment/605424/medium_ad1aa005.jpg" />
+                    src="{{ asset('profile_pictures/'.$serviceProvider->profile_picture) }}" />
                 </div>
                 <div class="top-jobber-frame"></div>
               </a></div>
             <div class="my-2"><a class="text-dark text-decoration-none"
                 href="/jobber/veyrard-sannois-882713?skill=removal">
-                <p class="fs-h4 mb-1 text-left">Veyrard</p>
+                <p class="fs-h4 mb-1 text-left">{{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}</p>
               </a>
-              <p class="text-muted mb-0 mt-n1">Déménageur</p><span class="fs-body16"><i
+              <span class="fs-body16"><i
                   class="icon icon-star-solid user-star-very-good"></i><strong class="pl-1">4,99</strong><span
                   class="text-muted pl-1">(627 avis)</span></span>
               <div class="mt-1">
@@ -125,86 +142,7 @@
           </div>
           </p>
         </div>
-        <div class="col-md-3 col-lg-3 pt-2">
-          <p>
-          <div class="d-flex align-items-center" data-preview-jobber="169287">
-            <div class="mr-3"><a class="position-relative d-block" href="/jobber/jean-paris-272573?skill=removal">
-                <div class="img-user img-80"><img alt="Profil de Jean"
-                    src="https://d1b747rczec55w.cloudfront.net/uploads/moderated_file/avatar/attachment/376314/medium_cfafb399.jpeg" />
-                </div>
-                <div class="position-absolute" style="top:-2px; right:-2px; z-index: 100"><svg aria-hidden="true"
-                    aria-label="Identité vérifiée" height="24" role="img" style="vertical-align: text-top" version="1.1"
-                    viewBox="0 0 24 24" width="24">
-                    <title>Identité vérifiée</title>
-                    <circle cx="12" cy="11" fill="white" r="9"></circle>
-                    <path
-                      d="M1.33587 8.06583C2.20239 12.5955 4.9591 23 12 23C19.0409 23 21.7976 12.5954 22.6641 8.06582C22.9043 6.81026 22.3105 5.56954 21.2034 4.93043C18.659 3.46162 14.0839 1 12 1C9.9161 1 5.341 3.46162 2.7966 4.93043C1.68949 5.56953 1.09568 6.81026 1.33587 8.06583ZM16.0213 7.12132L18.1426 9.24264L11.0716 16.3137L6.82894 12.0711L8.95026 9.94975L11.0716 12.0711L16.0213 7.12132Z"
-                      fill="var(--color-success)"></path>
-                  </svg></div>
-              </a></div>
-            <div class="my-2"><a class="text-dark text-decoration-none" href="/jobber/jean-paris-272573?skill=removal">
-                <p class="fs-h4 mb-1 text-left">Jean</p>
-              </a>
-              <p class="text-muted mb-0 mt-n1">Déménageur</p><span class="fs-body16"><i
-                  class="icon icon-star-solid user-star-very-good"></i><strong class="pl-1">4,99</strong><span
-                  class="text-muted pl-1">(510 avis)</span></span>
-            </div>
-          </div>
-          </p>
-        </div>
-        <div class="col-md-3 col-lg-3 pt-2">
-          <p>
-          <div class="d-flex align-items-center" data-preview-jobber="647913">
-            <div class="mr-3"><a class="position-relative d-block" href="/jobber/boukare-paris-751199?skill=removal">
-                <div class="img-user img-80"><img alt="Profil de Boukare"
-                    src="https://d1b747rczec55w.cloudfront.net/uploads/moderated_file/avatar/attachment/507438/medium_75c1faee.jpg" />
-                </div>
-                <div class="top-jobber-frame"></div>
-              </a></div>
-            <div class="my-2"><a class="text-dark text-decoration-none"
-                href="/jobber/boukare-paris-751199?skill=removal">
-                <p class="fs-h4 mb-1 text-left">Boukare</p>
-              </a>
-              <p class="text-muted mb-0 mt-n1">Déménageur</p><span class="fs-body16"><i
-                  class="icon icon-star-solid user-star-very-good"></i><strong class="pl-1">4,96</strong><span
-                  class="text-muted pl-1">(888 avis)</span></span>
-              <div class="mt-1">
-                <div class="badge rounded-pill badge-purple font-size-2 px-2 py-1 cursor-pointer text-white"
-                  data-content="Le badge « Top prestataire » met en avant les prestataires les plus expérimentés et les mieux notés sur Yoojo."
-                  data-placement="bottom" data-toggle="popover"><i class="icon-love-solid"></i> Top prestataire <i
-                    class="icon-info-circle"></i></div>
-              </div>
-            </div>
-          </div>
-          </p>
-        </div>
-        <div class="col-md-3 col-lg-3 pt-2">
-          <p>
-          <div class="d-flex align-items-center" data-preview-jobber="1053183">
-            <div class="mr-3"><a class="position-relative d-block"
-                href="/jobber/mohamed-champigny-sur-marne-1156469?skill=removal">
-                <div class="img-user img-80"><img alt="Profil de Mohamed "
-                    src="https://d1b747rczec55w.cloudfront.net/uploads/moderated_file/avatar/attachment/723420/medium_860e6323.jpg" />
-                </div>
-                <div class="top-jobber-frame"></div>
-              </a></div>
-            <div class="my-2"><a class="text-dark text-decoration-none"
-                href="/jobber/mohamed-champigny-sur-marne-1156469?skill=removal">
-                <p class="fs-h4 mb-1 text-left">Mohamed <span class="ml-2 badge badge-pro">PRO</span></p>
-              </a>
-              <p class="text-muted mb-0 mt-n1">Déménageur</p><span class="fs-body16"><i
-                  class="icon icon-star-solid user-star-very-good"></i><strong class="pl-1">4,97</strong><span
-                  class="text-muted pl-1">(234 avis)</span></span>
-              <div class="mt-1">
-                <div class="badge rounded-pill badge-purple font-size-2 px-2 py-1 cursor-pointer text-white"
-                  data-content="Le badge « Top prestataire » met en avant les prestataires les plus expérimentés et les mieux notés sur Yoojo."
-                  data-placement="bottom" data-toggle="popover"><i class="icon-love-solid"></i> Top prestataire <i
-                    class="icon-info-circle"></i></div>
-              </div>
-            </div>
-          </div>
-          </p>
-        </div>
+        @endforeach
       </div><a class="font-weight-medium" href="/demenagement/demenageur">Voir plus de déménageurs<i
           class="icon-angle-right pl-1 font-size-1"></i></a>
     </div>

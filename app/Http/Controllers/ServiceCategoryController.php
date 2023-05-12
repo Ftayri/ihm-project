@@ -19,9 +19,9 @@ class ServiceCategoryController extends Controller
 
     public function show($serviceCategory)
     {
+        $serviceCategories = ServiceCategory::all();
         $serviceCategory = ServiceCategory::where('slug',$serviceCategory)->firstOrFail();
         $serviceSubCategories = $serviceCategory->serviceSubCategories;
-        dd($serviceCategory);
-        return view('services.show',compact('serviceCategory','serviceSubCategories'));
+        return view('services.show',compact('serviceCategory','serviceSubCategories','serviceCategories'));
     }
 }

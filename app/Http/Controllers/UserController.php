@@ -85,10 +85,12 @@ class UserController extends Controller
             $user->remember_token = $request->remember_token;
         }
         $user->save();
-        //create ServiceProvider
         $serviceProvider = new ServiceProvider();
         $serviceProvider->user_id = $user->id;
         $serviceProvider->service_sub_category_id = $request->service_sub_category_id;
+         $imageName = time().'.'.$request->profile_picture->extension();
+        $request->profile_picture->move(public_path('profile_pictures'), $imageName);
+        $serviceProvider->profile_picture = $imageName;
         $serviceProvider->save();
         Auth::login($serviceProvider);
         return redirect()->route('home');
