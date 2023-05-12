@@ -11,7 +11,7 @@ class ServiceProvider extends User
     public $timestamps = false;
     protected $fillable = [
         'profile_picture',
-        'service_subcategory_id',
+        'service_sub_category_id',
         'service_description',
     ];
     public function serviceSubcategory()

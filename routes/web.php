@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/inscription',[HomeController::class,'register'])->name('register');
-Route::post('/inscription',[UserController::class,'store_beneficiary'])->name('beneficiary.store');
+Route::post('/inscription/beneficaire',[UserController::class,'storeBeneficiary'])->name('beneficiary.store');
+Route::post('/inscription/prestataire',[UserController::class,'storeServiceProvider'])->name('service-provider.store');
 Route::post('/login',[UserController::class,'login'])->name('login');
 Route::post('logout', [UserController::class,'logout'])->name('logout');
 Route::get('/services',[ServiceCategoryController::class,'index'])->name('services.index');
