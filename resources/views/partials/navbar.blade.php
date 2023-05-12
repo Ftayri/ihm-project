@@ -18,6 +18,25 @@
                 class="icon icon-bars icon-lg"></i></button>
             <div class="collapse navbar-collapse" id="nav-youpijob">
                 <ul class="navbar-nav ml-auto">
+                @if(Auth::check())
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <button type="submit" class="dropdown-item">
+                      <i class="fa-solid fa-user"></i> Profil
+                    </button>
+                    <form action="{{ route('logout') }}" method="POST">
+                      @csrf
+                      <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                      </button>
+                    </form>
+                  </div>
+                </li>
+                
+                @else
                 <li class="nav-item d-flex align-items-center"><a class="nav-link"
                     href="https://yoojo.fr/devenez-prestataire">Devenir prestataire</a></li>
                 <li class="nav-item d-flex align-items-center"><a id="loginMenuBtn" class="nav-link" data-toggle="modal" data-target="#loginModal"
@@ -25,6 +44,7 @@
                 <li class="nav-item d-flex align-items-center"><a class="nav-link"
                     href="{{ route('register') }}">Inscription</a></li>
                 </ul>
+                @endif
             </div>
     </nav>
 </header>
@@ -41,7 +61,8 @@
       </div>
       <div class="modal-body">
         <p>Connectez-vous pour accéder à votre compte.</p>
-        <form>
+        <form action="{{ route('login') }}" method="POST">
+          @csrf
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-prepend">
@@ -49,7 +70,7 @@
                   <i class="far fa-envelope" style="color: #8a939e;"></i>
                 </span>
               </div>
-              <input type="email" class="form-control" id="email" placeholder="Adresse e-mail">
+              <input type="email" class="form-control" name="email" placeholder="Adresse e-mail">
             </div>
           </div>
           <div class="form-group">
@@ -59,13 +80,13 @@
                   <i class="fas fa-lock" style="color: #8a939e;"></i>
                 </span>
               </div>
-              <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+              <input type="password" class="form-control" name="password" placeholder="Mot de passe">
             </div>
           </div>
           <div class="form-group form-row align-items-center">
             <div class="col-auto">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <input type="checkbox" class="form-check-input" name="rememberMe">
                 <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
               </div>
             </div>
@@ -106,7 +127,7 @@
         <div class="button-container">
           @forelse ( $serviceCategories as $serviceCategory)
             <div class="Block">
-              <button type="button" class="elevated-button">
+              <a class="elevated-button" href="{{ route('services.show',['serviceCategory'=> $serviceCategory->slug]) }}">
                 <div class="button-content">
                   <div class="image-container">
                     <img src="{{ asset('img/services/'.$serviceCategory->image) }}" alt="{{ $serviceCategory->name }}">
@@ -114,7 +135,7 @@
                   <span class="label">{{ $serviceCategory->name }}</span>
                 </div>
                 <i class="fas fa-angle-right"></i>
-              </button>
+              </a>
             </div>
           @empty
             nothing font
