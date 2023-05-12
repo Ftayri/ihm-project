@@ -154,8 +154,8 @@
           <div class="form-group form-row align-items-center">
             <div class="col-auto">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="rememberMe">
-                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                <input type="checkbox" class="form-check-input" name="remember_token">
+                <label class="form-check-label" for="remember_token">Se souvenir de moi</label>
               </div>
             </div>
           </div>
@@ -285,8 +285,8 @@
       <div class="form-group form-row align-items-center">
         <div class="col-auto">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMe">
-            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+            <input type="checkbox" class="form-check-input" id="remember_token">
+            <label class="form-check-label" for="remember_token">Se souvenir de moi</label>
           </div>
         </div>
       </div>

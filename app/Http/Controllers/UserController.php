@@ -7,6 +7,7 @@ use App\Models\User;
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
+use Validator;
 
 class UserController extends Controller
 {
@@ -44,21 +45,23 @@ class UserController extends Controller
         return redirect()->route('home');
     }
     public function login(Request $request){
-        $request->validate([
-            'email' => 'required',
+        $validator=  Validator::make($request->all(), [
+            'email' => 'required|exists:users',
             'password' => 'required',
-        ]);
-        //check if user exists
-        $user = User::where('email', $request->email)->first();
-        if (!$user) {
-            return redirect()->back()->with('error', 'Email ou mot de passe incorrect');
+        ],[
+            'email.required' => 'Veuillez saisir votre email',
+            'password.required' => 'Veuillez saisir votre mot de passe',
+            'email.exists' => 'Email incorrect',
+            'password.exists' => 'Mot de passe incorrect',
+        ],);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator, 'loginErrors');
         }
-        //check if password is correct
-        if (!Hash::check($request->password, $user->password)) {
-            return redirect()->back()->with('error', 'Email ou mot de passe incorrect');
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'remember_token'=>$request->rememberMe])){
+            return redirect()->route('home');
         }
-        Auth::login($user);
-        return redirect()->route('home');
+        $error['invalid']= 'Email ou mot de passe incorrect';
+        return redirect()->back()->withErrors($error, 'loginErrors');
     }
     public function logout()
     {

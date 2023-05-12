@@ -70,8 +70,11 @@
                   <i class="far fa-envelope" style="color: #8a939e;"></i>
                 </span>
               </div>
-              <input type="email" class="form-control" name="email" placeholder="Adresse e-mail">
+              <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Adresse e-mail">
             </div>
+            @error('email','loginErrors')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
           </div>
           <div class="form-group">
             <div class="input-group">
@@ -80,14 +83,20 @@
                   <i class="fas fa-lock" style="color: #8a939e;"></i>
                 </span>
               </div>
-              <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+              <input type="password" class="form-control @error('password','loginErrors') is-invalid @enderror" name="password" placeholder="Mot de passe">
             </div>
+            @error('password', 'loginErrors')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
           </div>
+          @error('invalid', 'loginErrors')
+            <div style="color: red;">{{ $message }}</div>
+          @enderror
           <div class="form-group form-row align-items-center">
             <div class="col-auto">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="rememberMe">
-                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                <input type="checkbox" class="form-check-input" name="remember_token">
+                <label class="form-check-label" for="remember_token">Se souvenir de moi</label>
               </div>
             </div>
             <div class="col-auto ml-auto">
@@ -98,6 +107,7 @@
             <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
           </div>
         </form>
+        
         
       </div>
       <div class="modal-footer d-flex justify-content-center">
@@ -147,5 +157,12 @@
 </div>
 
 <!-- End Service Modal -->
-
+@if($errors->loginErrors->any())
+<script>
+  //wait a sectond before showing the modal
+  setTimeout(function() {
+    $('#loginModal').modal('show');
+  }, 1000);
+</script>
+@endif
 
