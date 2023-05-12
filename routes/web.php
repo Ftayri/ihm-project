@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\ServiceSubCategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/inscription',[HomeController::class,'register'])->name('register');
+Route::post('/inscription/beneficaire',[UserController::class,'storeBeneficiary'])->name('beneficiary.store');
+Route::post('/inscription/prestataire',[UserController::class,'storeServiceProvider'])->name('service-provider.store');
+Route::post('/login',[UserController::class,'login'])->name('login');
+Route::post('logout', [UserController::class,'logout'])->name('logout');
 Route::get('/services',[ServiceCategoryController::class,'index'])->name('services.index');
-//   view ('JardinageSubServ)
-Route::get('/welcome', function () {
-    $serviceCategories =[];
-    return view('subServices.JardinageSubServ',compact('serviceCategories' ));
-});
-
-Route::get('/hi', function () {
-    $serviceCategories =[];
-    return view('subServices.Demenagement',compact('serviceCategories' ));
-});
-
+Route::get('/{serviceCategory}/{serviceSubCategory}',[ServiceSubCategoryController::class,'show'])->name('services.subcategory.show');
+Route::get('/{serviceCategory}',[ServiceCategoryController::class,'show'])->name('services.show');

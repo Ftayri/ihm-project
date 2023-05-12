@@ -8,16 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string $name
  * @property string $image
+ * @property string $slug
+ * @property ServiceSubCategory[] $serviceSubcategories
  */
 
 class ServiceCategory extends Model
 {
     
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'image',
-    ];
     public function serviceSubcategories()
     {
         return $this->hasMany(ServiceSubcategory::class);
