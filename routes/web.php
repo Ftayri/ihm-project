@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/profil',[UserController::class,'profile'])->name('profile');
 Route::get('/inscription',[HomeController::class,'register'])->name('register');
 Route::post('/inscription/beneficaire',[UserController::class,'storeBeneficiary'])->name('beneficiary.store');
 Route::post('/inscription/prestataire',[UserController::class,'storeServiceProvider'])->name('service-provider.store');

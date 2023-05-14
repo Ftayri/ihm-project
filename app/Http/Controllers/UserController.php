@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beneficiary;
+use App\Models\ServiceCategory;
 use App\Models\ServiceProvider;
 use App\Models\User;
 use Auth;
@@ -115,9 +116,21 @@ class UserController extends Controller
         $error['invalid']= 'Email ou mot de passe incorrect';
         return redirect()->back()->withErrors($error, 'loginErrors');
     }
+
     public function logout()
     {
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function profile()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('home');
+        }
+        $serviceCategories = ServiceCategory::all();
+        $beneficiary = Beneficiary::where('user_id', Auth::user()->id)->first();
+        $services = $beneficiary->services;
+        return view('user.profile', compact('serviceCategories','services'));
     }
 }

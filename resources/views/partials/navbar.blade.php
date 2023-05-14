@@ -19,7 +19,7 @@
             <ul class="navbar-nav ml-auto">
                 @if (Auth::check())
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="{{ route('profile') }}" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </a>

@@ -3,12 +3,11 @@
     <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
     @endsection
     @section('content')
-          <div class="ypj-fluid-container">
+        <div class="ypj-fluid-container">
             <ol class="breadcrumb mb-3 pl-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
                     itemtype="http://schema.org/ListItem">
-                    <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span
-                            itemprop="name">Acceuil</span></a>
+                    <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span itemprop="name">Acceuil</span></a>
                     <meta content="2" itemprop="position" />
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
@@ -23,13 +22,13 @@
             <ol class="breadcrumb mb-3 pl-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
                     itemtype="http://schema.org/ListItem">
-                    <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span
-                            itemprop="name">Acceuil</span></a>
+                    <a class="link-gray" itemprop="item" href="{{ route('home') }}"><span itemprop="name">Acceuil</span></a>
                     <meta content="2" itemprop="position" />
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
                     itemtype="http://schema.org/ListItem">
-                    <a class="link-gray" itemprop="item" href="{{ route('services.show',['serviceCategory'=>$serviceCategory->slug])  }}"><span
+                    <a class="link-gray" itemprop="item"
+                        href="{{ route('services.show', ['serviceCategory' => $serviceCategory->slug]) }}"><span
                             itemprop="name">{{ $serviceCategory->name }}</span></a>
                     <meta content="2" itemprop="position" />
                 </li>
@@ -39,12 +38,13 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <p class="text-muted mb-0">Trouvez le prestataire idéal, partout en Tunisie, en quelques minutes.</p>
-                    <h1 class="display-5 font-weight-medium">Réservez vos services de {{ Str::lower($serviceCategory->name) }} ponctuels
+                    <h1 class="display-5 font-weight-medium">Réservez vos services de
+                        {{ Str::lower($serviceCategory->name) }} ponctuels
                         ou récurrents</h1>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-lg-10"><button class="btn btn-primary service-cta btn-lg">Demander un service de
-                              {{ Str::lower($serviceCategory->name) }}</button>
+                                    {{ Str::lower($serviceCategory->name) }}</button>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="col-xl-4 offset-xl-2 offset-lg-1 col-lg-5"><img
                         alt="Réservez vos services de {{ Str::lower($serviceCategory->name) }} ponctuels ou récurrents"
                         class="img-contain radius-xl category-header-image-responsive"
-                        src="{{ asset('img/services/'.$serviceCategory->image) }}" />
+                        src="{{ asset('img/services/' . $serviceCategory->image) }}" />
                 </div>
             </div>
         </div>
@@ -123,21 +123,22 @@
         </div>
         <div class="ypj-fluid-container">
             <div class="row">
-              @foreach($serviceSubCategories as $serviceSubCategory)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 position-relative mb-3">
-                    <div class="category-hover">
-                        <div class="frosted-glass-shadow">
-                            <div class="picture"><img alt="Tondre la pelouse" class="radius-m img-contain"
-                                    style="height: 140px; object-position: right;" loading="lazy"
-                                    src="{{ asset('img/subservices/'.$serviceSubCategory->image) }}" />
+                @foreach ($serviceSubCategories as $serviceSubCategory)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 position-relative mb-3">
+                        <div class="category-hover">
+                            <div class="frosted-glass-shadow">
+                                <div class="picture"><img alt="Tondre la pelouse" class="radius-m img-contain"
+                                        style="height: 140px; object-position: right;" loading="lazy"
+                                        src="{{ asset('img/subservices/' . $serviceSubCategory->image) }}" />
+                                </div>
+                            </div>
+                            <div class="mt-2"><a
+                                    class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
+                                    href="{{ route('services.subcategory.show', ['serviceCategory' => $serviceCategory->slug, 'serviceSubCategory' => $serviceSubCategory->slug]) }}">{{ $serviceSubCategory->name }}</a>
                             </div>
                         </div>
-                        <div class="mt-2"><a
-                                class="text-decoration-none text-dark stretched-link font-weight-bold font-size-4"
-                                href="{{ route('services.subcategory.show',['serviceCategory'=>$serviceCategory->slug,'serviceSubCategory'=>$serviceSubCategory->slug]) }}">{{ $serviceSubCategory->name }}</a></div>
                     </div>
-                </div>
-              @endforeach
+                @endforeach
             </div>
         </div>
         <div class="ypj-fluid-container">
@@ -150,7 +151,8 @@
                             intelligents.</p>
                     </div>
                     <div class="col-md-6 mb-4"><i class="icon-shield-half icon-lg text-primary"></i>
-                        <h3 class="mt-2">Vos services de {{ Str::lower($serviceCategory->name) }} assurés et encadrés</h3>
+                        <h3 class="mt-2">Vos services de {{ Str::lower($serviceCategory->name) }} assurés et encadrés
+                        </h3>
                         <p class="mb-2">Réservez votre préstataire en ligne en toute confiance, vous êtes accompagné et
                             assuré du début
                             à la fin.</p>
@@ -163,7 +165,7 @@
                     </div>
                     <div class="col-md-6 mb-4">
                         <h3 class="mt-2">Tous les profils de préstataires sont vérifiés</h3>
-                        <p>Sur Yoojo, il n’y a pas de pseudo. Quand un prestataire de ménage rejoint notre plateforme, il
+                        <p>Sur MonDomiService, il n’y a pas de pseudo. Quand un prestataire de ménage rejoint notre plateforme, il
                             s’inscrit
                             sous sa véritable identité.</p>
                     </div>
@@ -181,8 +183,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 text-center"><img class="img-contain"
-                            alt="Des préstataires aux compétences spécifiques"
-                            src="{{ asset('img/skills.svg') }}" />
+                            alt="Des préstataires aux compétences spécifiques" src="{{ asset('img/skills.svg') }}" />
                     </div>
                 </div>
             </div>

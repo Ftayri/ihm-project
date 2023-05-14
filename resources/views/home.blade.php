@@ -284,30 +284,6 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-6">
-                <div class="radius-l mb-3 position-relative overflow-hidden"
-                    style="background-color: var(--color-turquoise600)">
-                    <div class="d-flex align-items-center justify-content-between w-100 flex-column flex-md-row">
-                        <div class="row w-100">
-                            <div class="col-md-6 col-12">
-                                <div class="px-md-5 px-3 py-md-4 py-3">
-                                    <p class="h1 text-white mb-2 mt-2 md-md-0">Gagnez 5% du montant dépensé par vos amis, à
-                                        vie.</p>
-                                    <p class="font-size-4 mb-0 text-white font-weight-bold mb-3">Soyez malin, devenez
-                                        parrain !</p>
-                                    <div class="d-flex align-items-center flex-wrap"><a
-                                            class="btn btn-light btn-lg mr-2 radius-circle"
-                                            onClick="ga(&#39;send&#39;,{hitType:&#39;event&#39;,eventCategory:&#39;referral&#39;,eventAction:&#39;referral_home_banner_press&#39;,eventLabel:&#39;&#39;,eventValue:0});"
-                                            href="https://yoojo.fr/parrainage">Découvrir</a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12 position-relative align-self-end"><img class="w-100"
-                                    src="{{ asset('img/referral-banner-artwork.svg') }}" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         </div>
     @endsection

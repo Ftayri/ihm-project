@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr" prefix="og: http://ogp.me/ns#">
-<!-- Mirrored from yoojo.fr/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 May 2023 21:16:08 GMT -->
-<!-- Added by HTTrack -->
-
 <head>
   <meta charset="utf-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -12,9 +9,10 @@
     name="description" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="yes" name="mobile-web-app-capable" />
+  <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendors/base/vendor.bundle.base.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" media="all"
-    href="" />
-  <link rel="stylesheet" media="screen"
     href="{{ asset('css/application-style.css') }}" />
   <meta
     content="https://d1b747rczec55w.cloudfront.net/assets/logo-og-facebook-0cbb632cd33d598b94d8673a5cb1695b51c3053f94863cfcc2d468f399badd84.jpg"
@@ -34,7 +32,7 @@
   <meta content="#ffffff" name="msapplication-TileColor" />
   <meta content="#ffffff" name="theme-color" />
   <script src="https://kit.fontawesome.com/576e1fd294.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+  
 
 </head>
 

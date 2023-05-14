@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string $profile_picture
+ * @property integer $service_sub_category_id
+ * @property string $service_description
+ * @property ServiceSubCategory $serviceSubCategory
+ * @property Service[] $services
+ */
 class ServiceProvider extends User
 {
     use HasFactory;
@@ -14,10 +21,11 @@ class ServiceProvider extends User
         'service_sub_category_id',
         'service_description',
     ];
-    public function serviceSubcategory()
+    public function serviceSubCategory()
     {
-        return $this->belongsTo(ServiceSubcategory::class);
+        return $this->belongsTo(ServiceSubCategory::class);
     }
+
     public function services()
     {
         return $this->hasMany(Service::class);
@@ -26,5 +34,4 @@ class ServiceProvider extends User
     {
         return $this->belongsTo(User::class);
     }
-
 }

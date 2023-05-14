@@ -115,26 +115,27 @@
     <div class="my-6">
       <h2>Découvrez les préstataires les mieux notés près de chez vous</h2>
       <div class="row">
-        @foreach($serviceProviders as $serviceProvider)
+        @forelse($serviceProviders as $serviceProvider)
         <div class="col-md-3 col-lg-3 pt-2">
           <p>
           <div class="d-flex align-items-center" data-preview-jobber="779427">
-            <div class="mr-3"><a class="position-relative d-block" href="/jobber/veyrard-sannois-882713?skill=removal">
+            <div class="mr-3"><a class="position-relative d-block" href="">
                 <div class="img-user img-80"><img alt="Profil de Veyrard"
                     src="{{ asset('profile_pictures/'.$serviceProvider->profile_picture) }}" />
                 </div>
                 <div class="top-jobber-frame"></div>
               </a></div>
             <div class="my-2"><a class="text-dark text-decoration-none"
-                href="/jobber/veyrard-sannois-882713?skill=removal">
+                href="">
                 <p class="fs-h4 mb-1 text-left">{{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}</p>
               </a>
+              <p class="text-muted mb-0 mt-n1">à {{ $serviceProvider->user->city }}</p>
               <span class="fs-body16"><i
                   class="icon icon-star-solid user-star-very-good"></i><strong class="pl-1">4,99</strong><span
                   class="text-muted pl-1">(627 avis)</span></span>
               <div class="mt-1">
                 <div class="badge rounded-pill badge-purple font-size-2 px-2 py-1 cursor-pointer text-white"
-                  data-content="Le badge « Top prestataire » met en avant les prestataires les plus expérimentés et les mieux notés sur Yoojo."
+                  data-content="Le badge « Top prestataire » met en avant les prestataires les plus expérimentés et les mieux notés sur MonDomiService."
                   data-placement="bottom" data-toggle="popover"><i class="icon-love-solid"></i> Top prestataire <i
                     class="icon-info-circle"></i></div>
               </div>
@@ -142,9 +143,14 @@
           </div>
           </p>
         </div>
-        @endforeach
-      </div><a class="font-weight-medium" href="/demenagement/demenageur">Voir plus de déménageurs<i
+        @empty
+        <div><h4>Pas encore de préstataires</h4></div>
+        @endforelse
+      </div>
+      @if($serviceProviders->count() > 0)
+      <a class="font-weight-medium" href="">Voir plus de préstataires<i
           class="icon-angle-right pl-1 font-size-1"></i></a>
+      @endif
     </div>
 
 
