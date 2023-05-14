@@ -212,7 +212,7 @@
                                             <i class="fas fa-user" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" name="first_name" placeholder="Nom*"
+                                    <input type="text" class="form-control @error('first_name','providerSignUpErrors') is-invalid @enderror" name="first_name" placeholder="Nom*"
                                         required>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                                             <i class="fas fa-user" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" name="last_name" placeholder="Prénom*"
+                                    <input type="text" class="form-control @error('last_name','providerSignUpErrors') is-invalid @enderror" name="last_name" placeholder="Prénom*"
                                         required>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@
                                             <i class="fas fa-phone" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="tel" class="form-control" name="phone_number"
+                                    <input type="tel" class="form-control @error('phone_number','providerSignUpErrors') is-invalid @enderror" name="phone_number"
                                         placeholder="Numéro de téléphone*" required>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
                                             <i class="far fa-id-card" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" name="id_card_number"
+                                    <input type="text" class="form-control @error('id_card_number','providerSignUpErrors') is-invalid @enderror" name="id_card_number"
                                         placeholder="Numéro de carte d'identité*" required>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                                             <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <select class="form-control" name="city" required>
+                                    <select class="form-control @error('city','providerSignUpErrors') is-invalid @enderror" name="city" required>
                                         <option value="" selected disabled>Choisissez un gouvernorat*</option>
                                         <option value="Sfax">Sfax</option>
                                         <option value="Sousse">Sousse</option>
@@ -299,7 +299,7 @@
                                         <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
                                     </span>
                                 </div>
-                                <select class="form-control" name="service_sub_category_id" id="service_sub_category" required disabled>
+                                <select class="form-control @error('service_sub_category_id','providerSignUpErrors') is-invalid @enderror" name="service_sub_category_id" id="service_sub_category" required disabled>
                                   <option value="">Choisir une sous-catégorie service</option>
                                 </select>
                             </div>
@@ -311,7 +311,7 @@
                                             <i class="far fa-envelope" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="email" class="form-control" name="email"
+                                    <input type="email" class="form-control @error('email','providerSignUpErrors') is-invalid @enderror" name="email"
                                         placeholder="Adresse e-mail*" required>
                                 </div>
                             </div>
@@ -322,8 +322,19 @@
                                             <i class="fa-solid fa-lock" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" name="password"
+                                    <input type="password" class="form-control @error('password','providerSignUpErrors') is-invalid @enderror" name="password"
                                         placeholder="Mot de passe*" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-file-waveform" style="color: #8a939e;"></i>
+                                        </span>
+                                    </div>
+                                    <textarea class="form-control @error('service_description','providerSignUpErrors') is-invalid @enderror" name="service_description" placeholder="Décrivez votre service*" style="height: 100px" required></textarea>
+
                                 </div>
                             </div>
                             <div class="form-group form-row align-items-center">

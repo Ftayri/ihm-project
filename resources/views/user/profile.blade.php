@@ -1,4 +1,5 @@
 @extends('layout.template')
+<title>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</title>
 @section('navbar-class')
     <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
     @endsection
@@ -33,17 +34,27 @@
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Préstataire</th>
+                                                    @if (isset($serviceProvider))
+                                                        <th>Préstataire</th>
+                                                    @else
+                                                        <th>Bénéficiaire</th>
+                                                    @endif
                                                     <th>Service</th>
                                                     <th>Date</th>
                                                     <th>Status</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @forelse($services as $service)
                                                     <tr>
-                                                        <td>{{ $service->serviceProvider->user->first_name }}
-                                                            {{ $service->serviceProvider->user->last_name }}</td>
+                                                        @if (isset($serviceProvider))
+                                                            <td>{{ $service->beneficiary->user->first_name }}
+                                                                {{ $service->beneficiary->user->last_name }}</td>
+                                                        @else
+                                                            <td>{{ $service->serviceProvider->user->first_name }}
+                                                                {{ $service->serviceProvider->user->last_name }}</td>
+                                                        @endif
                                                         <td>{{ $service->serviceProvider->serviceSubCategory->name }}</td>
                                                         <td class="font-weight-bold">{{ $service->created_at }}</td>
                                                         <td><label
@@ -58,6 +69,20 @@
                                                                     {{ $service->status }}
                                                                 @endif
                                                             </label></td>
+                                                        @if(isset($serviceProvider))
+                                                        @if($service->status === 'pending')
+                                                        <td>
+                                                            <form action="{{ route('service.action') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="id" value="{{ $service->id }}">
+                                                                <button class="btn btn-success btn-xs" type="submit"
+                                                                    name="action" value="accept">Accepter</button>
+                                                                <button class="btn btn-danger btn-xs" type="submit"
+                                                                    name="action" value="refuse">Refuser</button>
+                                                            </form>
+                                                        </td>
+                                                        @endif
+                                                        @endif
                                                     </tr>
                                                 @empty
                                                     <tr>

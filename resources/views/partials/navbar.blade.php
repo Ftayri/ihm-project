@@ -70,7 +70,7 @@
                                     <i class="far fa-envelope" style="color: #8a939e;"></i>
                                 </span>
                             </div>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror"
+                            <input type="email" class="form-control @error('email','loginErrors') is-invalid @enderror"
                                 name="email" placeholder="Adresse e-mail">
                         </div>
                         @error('email', 'loginErrors')

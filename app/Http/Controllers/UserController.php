@@ -58,6 +58,7 @@ class UserController extends Controller
             'city' => 'required',
             'password' => 'required',
             'service_sub_category_id' => 'required',
+            'service_description' => 'required',
         ], [
             'first_name.required' => 'Veuillez saisir votre prénom',
             'last_name.required' => 'Veuillez saisir votre nom',
@@ -73,6 +74,9 @@ class UserController extends Controller
             'password.required' => 'Veuillez saisir votre mot de passe',
             'service_sub_category_id.required' => 'Veuillez choisir une sous-catégorie de service',
         ]);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator, 'providerSignUpErrors');
+        }
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -92,6 +96,7 @@ class UserController extends Controller
          $imageName = time().'.'.$request->profile_picture->extension();
         $request->profile_picture->move(public_path('profile_pictures'), $imageName);
         $serviceProvider->profile_picture = $imageName;
+        $serviceProvider->service_description = $request->service_description;
         $serviceProvider->save();
         Auth::login($serviceProvider);
         return redirect()->route('home');
@@ -130,6 +135,11 @@ class UserController extends Controller
         }
         $serviceCategories = ServiceCategory::all();
         $beneficiary = Beneficiary::where('user_id', Auth::user()->id)->first();
+        if(!$beneficiary){
+            $serviceProvider = ServiceProvider::where('user_id', Auth::user()->id)->first();
+            $services = $serviceProvider->services;
+            return view('user.profile', compact('serviceCategories','services','serviceProvider'));
+        }
         $services = $beneficiary->services;
         return view('user.profile', compact('serviceCategories','services'));
     }
