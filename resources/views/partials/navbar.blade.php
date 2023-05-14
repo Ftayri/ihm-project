@@ -19,14 +19,16 @@
             <ul class="navbar-nav ml-auto">
                 @if (Auth::check())
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ route('profile') }}" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <form method="GET" action="{{ route('profile') }}">
                             <button type="submit" class="dropdown-item">
                                 <i class="fa-solid fa-user"></i> Profil
                             </button>
+                        </form>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item">

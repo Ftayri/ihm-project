@@ -42,7 +42,9 @@
                                                     <th>Service</th>
                                                     <th>Date</th>
                                                     <th>Status</th>
-                                                    <th>Action</th>
+                                                    @if (isset($serviceProvider))
+                                                        <th>Action</th>
+                                                    @endif
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -69,19 +71,32 @@
                                                                     {{ $service->status }}
                                                                 @endif
                                                             </label></td>
-                                                        @if(isset($serviceProvider))
-                                                        @if($service->status === 'pending')
-                                                        <td>
-                                                            <form action="{{ route('service.action') }}" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="id" value="{{ $service->id }}">
-                                                                <button class="btn btn-success btn-xs" type="submit"
-                                                                    name="action" value="accept">Accepter</button>
-                                                                <button class="btn btn-danger btn-xs" type="submit"
-                                                                    name="action" value="refuse">Refuser</button>
-                                                            </form>
-                                                        </td>
-                                                        @endif
+                                                        @if (isset($serviceProvider))
+                                                            @if ($service->status === 'pending')
+                                                                <td>
+                                                                    <form action="{{ route('service.action') }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{ $service->id }}">
+                                                                        <button class="btn btn-success btn-xs"
+                                                                            type="submit" name="action"
+                                                                            value="accept">Accepter</button>
+                                                                        <button class="btn btn-danger btn-xs" type="submit"
+                                                                            name="action" value="refuse">Refuser</button>
+                                                                    </form>
+                                                                </td>
+                                                            @endif
+                                                        @else
+                                                            @if ($service->status === 'accepted' && $service->evaluation === null)
+                                                                <td>
+                                                                    <button class="btn btn-success btn-xs" type="button"
+                                                                        data-toggle="modal" data-target="#evalModal"
+                                                                        data-service-id="{{ $service->id }}">Donner
+                                                                        un
+                                                                        avis</button>
+                                                                </td>
+                                                            @endif
                                                         @endif
                                                     </tr>
                                                 @empty
@@ -99,4 +114,51 @@
                 </div>
 
             </div>
-        @endsection
+            <div class="modal fade" id="evalModal" tabindex="-1" role="dialog" aria-labelledby="evalModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="evalModalLabel">Donner un avis à ce prestataire</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('service.evaluate') }}" method="POST">
+                                @csrf
+                                <input type="hidden" id="service_id" name="service_id">
+                                <div class="form-group">
+                                    <label for="digitInput">Score (/5): </label>
+                                    <input type="number" class="form-control" name="score" min="0" max="5"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="commentTextarea">Commentaire: </label>
+                                    <textarea class="form-control" name="comment" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+        <!-- Bootstrap JavaScript -->
+
+
+        <script>
+            $('#evalModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var serviceId = button.data('service-id');
+                console.log("a");
+                var modal = $(this);
+                modal.find('#service_id').val(serviceId);
+            });
+        </script>
+    @endsection

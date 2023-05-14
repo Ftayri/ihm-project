@@ -116,7 +116,7 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator, 'loginErrors');
         }
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'remember_token'=>$request->rememberMe])){
-            return redirect()->route('home');
+            return redirect()->back();
         }
         $error['invalid']= 'Email ou mot de passe incorrect';
         return redirect()->back()->withErrors($error, 'loginErrors');
@@ -125,7 +125,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->back();
     }
 
     public function profile()

@@ -5,6 +5,7 @@ use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceSubCategoryController;
 use App\Http\Controllers\UserController;
+use App\Models\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/prestataire/{id}',[ServiceController::class,'show'])->name('provider.show');
+Route::post('/prestataire/demande',[ServiceController::class,'request'])->name('service.request');
 Route::get('/profil',[UserController::class,'profile'])->name('profile');
 Route::get('/inscription',[HomeController::class,'register'])->name('register');
 Route::post('/inscription/beneficaire',[UserController::class,'storeBeneficiary'])->name('beneficiary.store');
@@ -29,3 +32,4 @@ Route::get('/services',[ServiceCategoryController::class,'index'])->name('servic
 Route::get('/{serviceCategory}/{serviceSubCategory}',[ServiceSubCategoryController::class,'show'])->name('services.subcategory.show');
 Route::get('/{serviceCategory}',[ServiceCategoryController::class,'show'])->name('services.show');
 Route::post('/profil',[ServiceController::class,'update'])->name('service.action');
+Route::post('/evaluation',[ServiceController::class,'evaluate'])->name('service.evaluate');

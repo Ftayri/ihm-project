@@ -33,4 +33,9 @@ class Service extends Model
     {
         return $this->belongsTo(ServiceProvider::class);
     }
+    
+    public function evaluation()
+    {
+        return $this->hasOne(Evaluation::class);
+    }
 }

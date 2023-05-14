@@ -333,7 +333,7 @@
                                             <i class="fa-solid fa-file-waveform" style="color: #8a939e;"></i>
                                         </span>
                                     </div>
-                                    <textarea class="form-control @error('service_description','providerSignUpErrors') is-invalid @enderror" name="service_description" placeholder="Décrivez votre service*" style="height: 100px" required></textarea>
+                                    <textarea class="form-control @error('service_description','providerSignUpErrors') is-invalid @enderror" name="service_description" placeholder="Décrivez votre service*" rows="3" required></textarea>
 
                                 </div>
                             </div>

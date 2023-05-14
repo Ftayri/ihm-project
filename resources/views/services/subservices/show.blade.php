@@ -122,14 +122,14 @@
         <div class="col-md-3 col-lg-3 pt-2">
           <p>
           <div class="d-flex align-items-center" data-preview-jobber="779427">
-            <div class="mr-3"><a class="position-relative d-block" href="#">
+            <div class="mr-3"><a class="position-relative d-block" href="">
                 <div class="img-user img-80"><img alt="Profil de {{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}"
                     src="{{ asset('profile_pictures/'.$serviceProvider->profile_picture) }}" />
                 </div>
                 <div class="top-jobber-frame"></div>
               </a></div>
             <div class="my-2"><a class="text-dark text-decoration-none"
-                href="#">
+                href="{{ route('provider.show',['id'=> $serviceProvider->id]) }}"> 
                 <p class="fs-h4 mb-1 text-left">{{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}</p>
               </a>
               <p class="text-muted mb-0 mt-n1">à {{ $serviceProvider->user->city }}</p>
