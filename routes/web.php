@@ -29,3 +29,8 @@ Route::get('/hi', function () {
     return view('subServices.Demenagement',compact('serviceCategories' ));
 });
 
+Route::get('/hello', function () {
+    $serviceCategories =[];
+    return view('subServices.PrestataireProfil',compact('serviceCategories' ));
+});
+
