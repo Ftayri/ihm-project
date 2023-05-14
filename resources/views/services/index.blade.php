@@ -1,4 +1,7 @@
 @extends('layout.template')
+@section('title')
+<title>Tous nos services</title>
+@endsection
 @section('navbar-class')
     <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
     @endsection
@@ -32,10 +35,12 @@
                         <div class="mb-3"><img alt="{{ $serviceCategory->name }}" class="img-contain radius-m"
                                 src="{{ asset('img/services/' . $serviceCategory->image) }}" />
                         </div>
-                        <h2 class="h3 mb-3"><a class="text-dark" href="">{{ $serviceCategory->name }}</a></h2>
-                        @foreach ($serviceCategory->serviceSubcategories as $serviceSubCategory)
-                            <p><a class="font-size-3 text-muted" href="">{{ $serviceSubCategory->name }}</a></p>
-                        @endforeach
+                        <h2 class="h3 mb-3"><a class="text-dark" href="{{ route('services.show',['serviceCategory'=> $serviceCategory->slug]) }}">{{ $serviceCategory->name }}</a></h2>
+                        @forelse ($serviceCategory->serviceSubcategories as $serviceSubCategory)
+                            <p><a class="font-size-3 text-muted" href="{{  route('services.subcategory.show', ['serviceCategory'=>$serviceCategory->slug, 'serviceSubCategory'=>$serviceSubCategory->slug]) }}">{{ $serviceSubCategory->name }}</a></p>
+                        @empty
+                            <p class="font-size-3 text-muted">Aucun service</p>
+                        @endforelse
                     </div>
                     @php
                         $i++;

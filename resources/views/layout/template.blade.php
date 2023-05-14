@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-  <title>Yoojo : le service à domicile entre particuliers</title>
+  @yield('title')
   <meta
     content="Spécialiste de la mise en relation pour les services à domicile. Trouvez la bonne personne pour vous aider dans votre quotidien : bricolage, jardinage, déménagement, ménage, garde d&#39;enfants, garde d&#39;animaux, informatique."
     name="description" />
@@ -20,7 +20,7 @@
   <meta
     content="Trouvez une femme de ménage, un bricoleur, un déménageur, un jardinier, une babysitter près de chez vous. Petits boulots rémunérés entre particuliers."
     property="og:description" />
-  <meta content="Yoojo" name="application-name" />
+  <meta content="MonDomiService" name="application-name" />
   <link data-attr="favicon" href="{{ asset('img/favicons/favicon.svg') }}" rel="icon" type="image/svg+xml" />
   <link data-attr="favicon" href="{{ asset('img/favicons/favicon-32x32.png') }}" rel="alternate icon" sizes="32x32"
     type="image/png" />

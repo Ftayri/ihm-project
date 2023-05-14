@@ -1,4 +1,7 @@
 @extends('layout.template')
+@section('title')
+<title>{{ $serviceSubCategory->name }}</title>
+@endsection
 @section('navbar-class')
 <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
 @endsection
@@ -13,7 +16,7 @@
       </li>
       <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
           itemtype="http://schema.org/ListItem">
-          <a class="link-gray" itemprop="item" href=""><span
+          <a class="link-gray" itemprop="item" href="#"><span
                   itemprop="name">{{ $serviceCategory->name }}</span></a>
           <meta content="2" itemprop="position" />
       </li>
@@ -43,7 +46,7 @@
       <div class="hero-content-left">
         <h1 class="font-weight-medium">Service de {{ Str::lower($serviceSubCategory->name) }}</h1>
        <a class="btn btn-primary btn-lg btn-break"
-          href="/poster-un-job?category=3018">Réservez votre {{ Str::lower($serviceSubCategory->name) }}</a>
+          href="#">Réservez votre {{ Str::lower($serviceSubCategory->name) }}</a>
       </div>
       <div class="hero-content-right"><img alt="Service de {{$serviceSubCategory->name}}"
           class="img-contain radius-xl subcategory-header-image-responsive d-none d-lg-block"
@@ -119,14 +122,14 @@
         <div class="col-md-3 col-lg-3 pt-2">
           <p>
           <div class="d-flex align-items-center" data-preview-jobber="779427">
-            <div class="mr-3"><a class="position-relative d-block" href="">
-                <div class="img-user img-80"><img alt="Profil de Veyrard"
+            <div class="mr-3"><a class="position-relative d-block" href="#">
+                <div class="img-user img-80"><img alt="Profil de {{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}"
                     src="{{ asset('profile_pictures/'.$serviceProvider->profile_picture) }}" />
                 </div>
                 <div class="top-jobber-frame"></div>
               </a></div>
             <div class="my-2"><a class="text-dark text-decoration-none"
-                href="">
+                href="#">
                 <p class="fs-h4 mb-1 text-left">{{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}</p>
               </a>
               <p class="text-muted mb-0 mt-n1">à {{ $serviceProvider->user->city }}</p>
@@ -148,7 +151,7 @@
         @endforelse
       </div>
       @if($serviceProviders->count() > 0)
-      <a class="font-weight-medium" href="">Voir plus de préstataires<i
+      <a class="font-weight-medium" href="#">Voir plus de préstataires<i
           class="icon-angle-right pl-1 font-size-1"></i></a>
       @endif
     </div>

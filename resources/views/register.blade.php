@@ -63,7 +63,7 @@
                             rendant service près de chez vous</span>
                     </a>
                 </div>
-                <p class="text-center mb-0">Vous avez déjà un compte ?<a class="ml-2" href="" id="dispatchLoginOR"
+                <p class="text-center mb-0">Vous avez déjà un compte ?<a class="ml-2" href="#" id="dispatchLoginOR"
                         data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
                 </p>
             </div>

@@ -9,13 +9,13 @@
                     <nav class="sidebar sidebar-offcanvas border border" id="sidebar">
                         <ul class="nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="#">
                                     <i class="ti-bookmark-alt menu-icon"></i>
                                     <span class="menu-title">Mes demandes</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="#">
                                     <i class="ti-user menu-icon"></i>
                                     <span class="menu-title">Compte</span>
                                 </a>

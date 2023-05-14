@@ -1,4 +1,7 @@
 @extends('layout.template')
+@section('title')
+<title>{{ $serviceCategory->name }}: tous nos services</title>
+@endsection
 @section('navbar-class')
     <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative bg-white">
     @endsection
@@ -12,7 +15,7 @@
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope=""
                     itemtype="http://schema.org/ListItem">
-                    <a class="link-gray" itemprop="item" href=""><span
+                    <a class="link-gray" itemprop="item" href="#"><span
                             itemprop="name">{{ $serviceCategory->name }}</span></a>
                     <meta content="2" itemprop="position" />
                 </li>
@@ -43,7 +46,7 @@
                         ou récurrents</h1>
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-lg-10"><button class="btn btn-primary service-cta btn-lg">Demander un service de
+                            <div class="col-lg-10"><button class="btn btn-primary service-cta btn-lg" data-toggle="modal" data-target="#SubServiceModal">Demander un service de
                                     {{ Str::lower($serviceCategory->name) }}</button>
                             </div>
                         </div>
@@ -184,6 +187,45 @@
                     </div>
                     <div class="col-md-6 mb-4 text-center"><img class="img-contain"
                             alt="Des préstataires aux compétences spécifiques" src="{{ asset('img/skills.svg') }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="SubServiceModal" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title">Demander un Service</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-search" style="color: #8a939e;"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Rechercher un service...">
+                        </div>
+                        <div class="button-container">
+                            @forelse ($serviceSubCategories as $serviceSubCategory)
+                                <div class="Block">
+                                    <a class="elevated-button"
+                                        href="{{ route('services.subcategory.show', ['serviceCategory' => $serviceCategory->slug, 'serviceSubCategory'=> $serviceSubCategory->slug]) }}">
+                                        <div class="button-content">
+                                            <div class="image-container">
+                                                <img src="{{ asset('img/subservices/' . $serviceSubCategory->image) }}"
+                                                    alt="{{ $serviceSubCategory->name }}">
+                                            </div>
+                                            <span class="label">{{ $serviceSubCategory->name }}</span>
+                                        </div>
+                                        <i class="fas fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            @empty
+                                nothing font
+                            @endforelse
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,7 @@
 @extends('layout.template')
+@section('title')
+<title>MonDomiService : le service à domicile entre particuliers</title>
+@endsection
 @section('navbar-class')
     <nav class="navbar navbar-expand-lg navbar-light border-bottom-wide position-relative navbar-transparent"
         id="navbar-transparent">
