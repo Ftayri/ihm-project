@@ -135,7 +135,7 @@ class UserController extends Controller
         }
         $serviceCategories = ServiceCategory::all();
         $beneficiary = Beneficiary::where('user_id', Auth::user()->id)->first();
-        if(!$beneficiary){
+        if($beneficiary==null){
             $serviceProvider = ServiceProvider::where('user_id', Auth::user()->id)->first();
             $services = $serviceProvider->services;
             return view('user.profile', compact('serviceCategories','services','serviceProvider'));

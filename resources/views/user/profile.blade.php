@@ -35,9 +35,9 @@
                                             <thead>
                                                 <tr>
                                                     @if (isset($serviceProvider))
-                                                        <th>Préstataire</th>
-                                                    @else
                                                         <th>Bénéficiaire</th>
+                                                    @else
+                                                        <th>Préstataire</th>
                                                     @endif
                                                     <th>Service</th>
                                                     <th>Date</th>
@@ -54,10 +54,10 @@
                                                             <td>{{ $service->beneficiary->user->first_name }}
                                                                 {{ $service->beneficiary->user->last_name }}</td>
                                                         @else
-                                                            <td>{{ $service->serviceProvider->user->first_name }}
-                                                                {{ $service->serviceProvider->user->last_name }}</td>
+                                                            <td><a href="{{ route('provider.show', ['id'=>$service->serviceProvider->id]) }}">{{ $service->serviceProvider->user->first_name }}
+                                                                {{ $service->serviceProvider->user->last_name }}</a></td>
                                                         @endif
-                                                        <td>{{ $service->serviceProvider->serviceSubCategory->name }}</td>
+                                                        <td><a  style="text-decoration: none;" href="{{ route('services.subcategory.show', ['serviceCategory'=>$service->serviceProvider->serviceSubCategory->serviceCategory->slug, 'serviceSubCategory'=>$service->serviceProvider->serviceSubCategory->slug]) }}">{{ $service->serviceProvider->serviceSubCategory->name }}</a></td>
                                                         <td class="font-weight-bold">{{ $service->created_at }}</td>
                                                         <td><label
                                                                 class="badge {{ $service->status === 'refused' ? 'badge-danger' : ($service->status === 'pending' ? 'badge-warning' : 'badge-success') }}">

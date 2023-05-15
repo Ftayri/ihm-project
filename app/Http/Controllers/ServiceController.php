@@ -75,7 +75,9 @@ class ServiceController extends Controller
         }
         $serviceCount = $serviceProvider->services->where('status','accepted')->count();
         //check if current user has a pending service from this service provider
-        $pendingService = Service::where('beneficiary_id',auth()->user()->beneficiary->id)->where('service_provider_id',$serviceProvider->id)->where('status','pending')->first();
+        $pendingService = null;
+        if(auth()->user()!=null)
+            $pendingService = Service::where('beneficiary_id',auth()->user()->beneficiary->id)->where('service_provider_id',$serviceProvider->id)->where('status','pending')->first();
         return view('services.subservices.service-provider',compact('serviceProvider','serviceCategories','services','evaluations','averageScore','count','serviceCount','pendingService'));
     }
 
