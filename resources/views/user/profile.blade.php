@@ -54,10 +54,14 @@
                                                             <td>{{ $service->beneficiary->user->first_name }}
                                                                 {{ $service->beneficiary->user->last_name }}</td>
                                                         @else
-                                                            <td><a href="{{ route('provider.show', ['id'=>$service->serviceProvider->id]) }}">{{ $service->serviceProvider->user->first_name }}
-                                                                {{ $service->serviceProvider->user->last_name }}</a></td>
+                                                            <td><a
+                                                                    href="{{ route('provider.show', ['id' => $service->serviceProvider->id]) }}">{{ $service->serviceProvider->user->first_name }}
+                                                                    {{ $service->serviceProvider->user->last_name }}</a>
+                                                            </td>
                                                         @endif
-                                                        <td><a  style="text-decoration: none;" href="{{ route('services.subcategory.show', ['serviceCategory'=>$service->serviceProvider->serviceSubCategory->serviceCategory->slug, 'serviceSubCategory'=>$service->serviceProvider->serviceSubCategory->slug]) }}">{{ $service->serviceProvider->serviceSubCategory->name }}</a></td>
+                                                        <td><a style="text-decoration: none;"
+                                                                href="{{ route('services.subcategory.show', ['serviceCategory' => $service->serviceProvider->serviceSubCategory->serviceCategory->slug, 'serviceSubCategory' => $service->serviceProvider->serviceSubCategory->slug]) }}">{{ $service->serviceProvider->serviceSubCategory->name }}</a>
+                                                        </td>
                                                         <td class="font-weight-bold">{{ $service->created_at }}</td>
                                                         <td><label
                                                                 class="badge {{ $service->status === 'refused' ? 'badge-danger' : ($service->status === 'pending' ? 'badge-warning' : 'badge-success') }}">
@@ -149,16 +153,14 @@
         <!-- jQuery library -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-        <!-- Bootstrap JavaScript -->
-
-
         <script>
-            $('#evalModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var serviceId = button.data('service-id');
-                console.log("a");
-                var modal = $(this);
-                modal.find('#service_id').val(serviceId);
+            $(document).ready(function() {
+                $('#evalModal').on('show.bs.modal', function(event) {
+                    var button = $(event.relatedTarget);
+                    var serviceId = button.data('service-id');
+                    var modal = $(this);
+                    modal.find('#service_id').val(serviceId);
+                });
             });
         </script>
     @endsection
