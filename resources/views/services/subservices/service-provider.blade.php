@@ -13,7 +13,8 @@
 
                                     <div class="position-relative d-flex justify-content-center" id="imageGallery"><a
                                             data-image-gallery-item="" href="#">
-                                            <div class="img-user img-120"><img
+                                            <div class="img-user img-120" style="width: 100px heigth:102px">
+                                                <img
                                                     alt="Profil de {{ $serviceProvider->user->first_name }} {{ $serviceProvider->user->last_name }}"
                                                     src="{{ asset('profile_pictures/' . $serviceProvider->profile_picture) }}" />
                                             </div>
