@@ -258,7 +258,7 @@
                                     </div>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="profile_picture" required>
-                                        <label class="custom-file-label" for="photo">Choisir un fichier *</label>
+                                        <label class="custom-file-label" for="photo">Choisir une image *</label>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +281,7 @@
                               <div class="input-group">
                                   <div class="input-group-prepend">
                                       <span class="input-group-text">
-                                          <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
+                                        <i class="fa-solid fa-list" style="color: #8a939e;"></i>
                                       </span>
                                   </div>
                                   <select class="form-control" id="service_category"  required>
@@ -296,7 +296,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="fas fa-map-marker-alt" style="color: #8a939e;"></i>
+                                        <i class="fa-solid fa-list-check" style="color: #8a939e;"></i>
                                     </span>
                                 </div>
                                 <select class="form-control @error('service_sub_category_id','providerSignUpErrors') is-invalid @enderror" name="service_sub_category_id" id="service_sub_category" required disabled>

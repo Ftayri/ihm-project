@@ -43,7 +43,7 @@ class UserController extends Controller
         $beneficiary = new Beneficiary();
         $beneficiary->user_id = $user->id;
         $beneficiary->save();
-        Auth::login($beneficiary);
+        Auth::login($user);
         return redirect()->route('home');
     }
     public function storeServiceProvider(Request $request)
@@ -98,7 +98,7 @@ class UserController extends Controller
         $serviceProvider->profile_picture = $imageName;
         $serviceProvider->service_description = $request->service_description;
         $serviceProvider->save();
-        Auth::login($serviceProvider);
+        Auth::login($user);
         return redirect()->route('home');
         
     }
