@@ -1,12 +1,11 @@
 <div class="fixed-top">
     <header class="d-flex flex-column">
         @yield('navbar-class')
-        <div class="d-none d-md-block"><a class="navbar-brand brand-size" href="{{ route('home') }}"><img alt="Le jobbing avec Yoojo"
-                    width="80" class="logo-brand-fr" src="{{ asset('img/logo/yoojo-youpijob-logo.svg') }}" /></a>
+        <div class="d-none d-md-block"><a class="navbar-brand brand-size" href="{{ route('home') }}">
+            <img alt="Le jobbing avec MonDomiService"
+                   class="logo-brand-fr" src="{{ asset('img/logo/yoojo-youpijob-logo.svg') }}" /></a>
         </div>
-        <div class="d-block d-md-none"><a class="d-block brand-size" href="{{ route('home') }}"><img alt="Le jobbing avec Yoojo"
-                    width="35" class="logo-brand-fr" src="{{ asset('img/logo/yoojo-logo-icon.svg') }}" /></a>
-        </div>
+      
         <div class="position-absolute mx-auto left-0 right-0 top-0 header-button-placement" id="main-search">
             <div class="d-none d-md-block"><button
                     class="btn btn-primary my-lg-0 rounded-circle-box askService d-flex align-items-center px-3 mx-auto py-2"
